@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <link rel="stylesheet" href="signup.css">
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    /* background-color: #eae7dc; */
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.signup{
+    width: 420px;
+    padding: 29px;
+    margin: 0 28px;
+    border-radius: 12px;
+    overflow: hidden;
+    /* background: #d8c385; */
+    background: #858ae3;
+    box-shadow: 15px 20px 25px rgba(231, 122, 255, 0.2);
+}
+
+.signup h1{
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: #1a1826;
+    
+    padding-bottom: 28px;
+}
+
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px 0;
+}
+
+.input{
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    padding-bottom: 15px;
+}
+.input label{
+    font-size: 16px;
+}
+
+.input:nth-child(2n){
+    justify-content: end;
+}
+
+
+
+.input label ,.gender-title{
+    width: 95%;
+    color: #1a1826;
+    /* color: white; */
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.gender-title{
+    margin-right: 5px;
+    font-size: 16px;
+}
+
+.input input{
+    background-color: transparent;
+    height: 40px;
+    width: 95%;
+    padding: 0 10px;
+    border-radius: 20px;
+    border: 1.5px solid #1a1826;
+    outline: none;
+    font-size: 13px;
+}
+.input input::placeholder{
+    color: #1a1826;
+    /* color: white; */
+}
+
+.gender-category label{
+    font-size: 18px;
+    padding: 0 20px 0 5px;
+}
+
+.gender-category{
+    color: #1a1826;
+    /* color: white; */
+}
+
+.gender-category label, .gender-category input{
+    cursor: pointer;
+}
+
+.user-type-category label{
+    font-size: 18px;
+    padding: 0 20px 0 5px;
+}
+
+.user-type-category{
+    padding-top: 15px;
+    padding-left: 19px;
+    color: #1a1826;
+    /* color: white; */
+}
+
+.user-type-category label, .gender-category input{
+    cursor: pointer;
+}
+
+
+
+.signup-btn{
+    margin: 15px 0;
+}
+
+.signup-btn button{
+    width: 100%;
+    margin-top: 10px;
+    /* color: #1a1826; */
+    color: white;
+    font-size: 19px;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    /* background: white; */
+    background: #4e148c;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-weight: 600;
+    padding: 15px;
+}
+.error_message{
+    color: red;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.floating-svg {
+    position: absolute;
+    width: 50px; /* Set your desired width (small size) */
+    height: auto; /* Maintain aspect ratio */
+    pointer-events: none; /* Prevent interaction */
+    z-index: -1;  /*Ensure SVGs are behind other content */
+}
+    </style>
+</head>
+<body>
+    <div class="signup">
+        <div class="error_message">
+            {% if error_msg %}
+                <p>{{ error_msg }}</p>
+            {% endif %}
+        </div>
+        <form action="" method="post">
+            <h1>Sign Up</h1>
+            <div class="content">
+                <div class="input">
+                    <label for="name">Fullname</label>
+                    <input type="text" placeholder="Enter Fullname" name="name" required>
+                </div>
+                <div class="input">
+                    <label for="username">Username</label>
+                    <input type="text" placeholder="Enter Username" name="user" required>
+                </div>
+                <div class="input">
+                    <label for="email">Email</label>
+                    <input type="email" placeholder="Enter valid Email address" name="email" required>
+                </div>
+                <div class="input">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" placeholder="Enter phone number" name="phone" required>
+                </div>
+                <div class="input">
+                    <label for="password">Password</label>
+                    <input type="password" placeholder="Enter password" name="password" required>
+                </div>
+                <div class="input">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" placeholder="Confirm your password" name="confirm-password" required>
+                </div>
+                <div class="gender-category">
+                    <span class="gender-title">Gender</span>
+                    <input type="radio" name="gender" id="male" value="Male">
+                    <label for="male">Male</label>
+                    <input type="radio" name="gender" id="female" value="Female">
+                    <label for="female">Female</label>
+                </div>
+                <div class="user-type-category">
+                    <span class="gender-title">I am a: </span>
+                    <input type="radio" name="website_user" id="artist" value="artist">
+                    <label for="male">Artist</label>
+                    <input type="radio" name="website_user" id="employer" value="employer">
+                    <label for="female">Employer</label>
+                </div>
+
+            </div>
+            <div class="signup-btn">
+                <button>Sign Up</button>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    // const svgFiles = [
+    //         '/static/drum.svg',
+    //         '/static/guitar.svg',
+    //         '/static/mic.svg',
+    //         '/static/piano.svg',
+    //         '/static/keys.svg',
+    //         '/static/jazz.svg',
+    //         // Add more SVG paths as needed
+    //     ];
+
+    //     function createFloatingSVG(side) {
+    //         const svgIndex = Math.floor(Math.random() * svgFiles.length);
+    //         const svg = document.createElement('img');
+    //         svg.src = svgFiles[svgIndex];
+    //         svg.className = 'floating-svg';
+
+    //         // Set position based on the side (left or right)
+    //         const minTop = 50; // Minimum top position
+    //         const maxTop = window.innerHeight - 100; // Maximum top position
+
+    //         svg.style.top = Math.random() * (maxTop - minTop) + minTop + 'px'; // Random vertical position
+
+    //         if (side === 'left') {
+    //             svg.style.left = '-60px'; // Position off-screen to the left
+    //         } else if (side === 'right') {
+    //             svg.style.right = '-60px'; // Position off-screen to the right
+    //         }
+
+    //         // Append to body
+    //         document.body.appendChild(svg);
+
+    //         // Animate the floating effect
+    //         animateSVG(svg);
+    //     }
+
+    //     function animateSVG(svg) {
+    //         const animationDuration = Math.random() * 5 + 5; // Random duration between 5s and 10s
+    //         const translateY = Math.random() * 30 - 15; // Random y translation for floating effect
+
+    //         svg.animate([
+    //             { transform: 'translate(0, 0)' },
+    //             { transform: `translate(0, ${translateY}px)` }
+    //         ], {
+    //             duration: animationDuration * 1000,
+    //             iterations: Infinity,
+    //             direction: 'alternate'
+    //         });
+    //     }
+
+    //     for (let i = 0; i < 10; i++) { // Adjust the number for more/fewer SVGs
+    //         createFloatingSVG('left'); // Create SVGs on the left side
+    //         createFloatingSVG('right'); // Create SVGs on the right side
+    //     }
+</script>
+</html>

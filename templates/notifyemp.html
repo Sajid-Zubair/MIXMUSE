@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Accepted Applicants</title>
+</head>
+<style>
+    body{
+/* background-color: #eae7dc; */
+background-color: black;
+}
+*{
+text-decoration: none;
+}
+
+.navbar{
+padding-right: 15px;
+padding-left: 15px;
+}
+
+.nav-div{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.nav-logo a{
+/* color: #1a1826; */
+background: linear-gradient(90deg, #ff007f, #5a189a);
+background-clip: text;
+-webkit-text-fill-color: transparent;
+font-size: 48px;
+font-weight: bold;
+}
+
+.navbar ul li{
+margin-right: 50px;
+}
+.navbar ul li i{
+font-size: 35px;
+}
+
+li{
+list-style: none;
+display: inline;
+}
+
+li a i{
+/* color: #1a1826; */
+color: #f1e2b6;
+font-size: 25px;
+margin-right: 20px;
+}
+
+.sub-menu-wrap{
+position: absolute;
+top: 80px;
+right: 8%;
+width: 320px;
+max-height: 0px;
+overflow: hidden;
+transition: max-height 0.5s;
+z-index: 1;
+}
+
+.sub-menu-wrap.open-menu{
+max-height: 400px;
+}
+.sub-menu{
+background: white;
+margin: 10px;
+padding: 20px;
+}
+.sub-menu .user-info i{
+font-size: 44px;
+}
+
+.user-info{
+display: flex;
+align-items: center;
+
+}
+.sub-menu .user-info h3{
+font-weight: 500;
+}
+.user-info i{
+width: 60px;
+border-radius: 50%;
+margin-right: 15px;
+font-size: 30px;
+}
+
+.sub-menu hr{
+border: none;
+height: 1px;
+width: 100%;
+background-color: #1a1826;
+margin: 1px 0 15px;
+}
+
+.sub-menu-link{
+display: flex;
+align-items: center;
+text-decoration: none;
+color: #1a1826;
+margin: 12px 0;
+}
+
+.sub-menu-link p{
+width: 100%;
+}
+
+
+.edit{
+text-decoration: none;
+color: #1a1826;
+width: 100%;
+}
+.edit:hover {
+font-weight: bold;
+}
+
+.sub-menu-link i{
+/* background-color: #d8c385; */
+background-color: #ffd6ff;
+border-radius: 50%;
+padding: 8px;
+margin-right: 10px;
+width: 30px;
+font-size: 28px;
+}
+
+.sub-menu-link span{
+font-size: 22px;
+}
+
+.sub-menu-link:hover span{
+transform: translateX(5px);
+}
+
+.sub-menu-link:hover p{
+font-weight: bold;
+}
+
+.post{
+font-size: 30px;
+/* color: #1a1826; */
+color: white;
+font-weight: bold;
+}
+
+.fixed-btn{
+position: fixed;
+bottom: 60px;
+right: 60px;
+background-color: #1a1826;
+color: white;
+font-size: 18px;
+border: none;
+border-radius: 50%;
+padding: 10px 8px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+cursor: pointer;
+}
+.plus a{
+font-weight: bold;
+font-size: 24px;
+margin: 5px 10px;
+color: white;
+}
+.fixed-btn:hover{
+transform: scale(1.03);
+}
+
+.job-list-container {
+max-width: 80%;
+height: 100vh;
+margin: 20px auto;
+background-color: #d8c385;
+padding: 34px;
+border-radius: 12px;
+overflow-y: auto;
+}
+
+.job-list-container h2{
+font-size: 30px;
+border-left: 4px solid #1a1826;
+padding-left: 20px;
+}
+
+.job-list-container .jobs{
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+gap: 24px;
+}
+
+.job-list-container .job{
+box-shadow: 0 4px 24px -8px rgba(2,48,71,0.2);
+padding: 24px;
+border-radius: 24px;
+background: #f1e2b6;
+position: relative;
+display: flex;
+flex-direction: column;
+transition: all 400ms ease;
+}
+
+.job-list-container .job:hover{
+transform: scale(1.03);
+}
+
+.job-list-container .open-positions{
+position: absolute;
+top: 40px;
+right: 24px;
+color: #1a1826;
+}
+
+.job-list-container .jobtitle{
+font-size: 25px;
+padding: 10px 0;
+margin: 0;
+color: #1a1826;
+}
+
+.job-list-container .details{
+margin-top: 6px;
+font-size: 16px;
+color: #1a1826;
+list-style: 1.8;
+flex: 1;
+}
+
+.job-list-container .details-btn{
+text-decoration: none;
+border: 1px solid #023047;
+color: #1a1826;
+padding: 8px 16px;
+border-radius: 8px;
+margin-top: 20px;
+font-weight: 300;
+transition: all 400ms ease;
+}
+
+.job-list-container .details-btn:hover{
+background-color:rgb(114, 69, 6);
+color: white;
+}
+
+.notification {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px 0;
+    /* background-color: #f1e2b6; */
+    background-color: #ffd6ff;
+
+}
+
+.notification h4 {
+    margin: 0 0 10px 0;
+}
+.notification a{
+    color: darkblue;
+    font-weight: bold;
+}
+.container{
+    max-width: 80%;
+    height: 100vh;
+    overflow-y: auto;
+    justify-content: center;
+    align-items: center;
+    padding: 28px;
+    /* background-color: #d8c385; */
+    background-color: #b7a1f9;
+    margin-left: 65px;
+    margin-top: 30px;
+    border-radius: 20px;
+}
+</style>
+<body>
+    <nav class="navbar">
+        <div class="nav-div">
+            <div class="nav-logo"><a href="/emphome">MIXMUSE</a></div>
+            <ul>
+                <li><a href="/postjob" class="post">Create Post</a></li>
+                <li><a href="/emphome"><i class='bx bxs-home'></i></a></li>
+                <li><a href="#"><i class='bx bxs-chat' ></i></a></li>
+                <li><a href="#" class="user-pic" onclick="toggleMenu()"><i class='bx bxs-user-circle'></i></a></li>
+            </ul>
+        </div>
+
+        <div class="sub-menu-wrap" id="sub">
+            <div class="sub-menu">
+                <div class="user-info">
+                    <i class='bx bxs-user-circle' ></i>
+                    <h3>{{user_data[1]}}</h3>
+                </div>
+                <hr>
+
+                <a href="/profile" class="sub-menu-link">
+                    <i class='bx bxs-user-circle' ></i>
+                    <p>Edit profile</p>
+                    <span>></span>
+                </a>
+                <a href="#" class="sub-menu-link">
+                    <i class='bx bx-help-circle'></i>
+                    <p>Help</p>
+                    <span>></span>
+                </a>
+                
+                <a href="/logout" class="sub-menu-link">
+                    <i class='bx bx-log-out'></i>
+                    <p>Logout</p>
+                    <span>></span>
+                </a>
+
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h1>Messages</h1>
+        {% if accepted_applicants %}
+            {% for applicant in accepted_applicants %}
+                <div class="notification">
+                    <!-- <h4>Congratulations!</h4> -->
+                    <p>You have selected <strong>{{ applicant.username }}</strong> as a <strong>{{ applicant.job_title }}</strong>!</p>
+                    <p>Please contact <a href="mailto:{{ applicant.email }}">{{ applicant.email }}</a> for further discussions.</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="notification">
+                <p>You have not selected any applicants</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+<script>
+    let subMenu = document.getElementById("sub");
+        
+    function toggleMenu(){
+        sub.classList.toggle("open-menu");
+    }
+</script>
+</html>

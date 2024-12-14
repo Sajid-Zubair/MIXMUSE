@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href="css/home.css">
+    <style>
+        body{
+    /* background-color: #eae7dc; */
+    /* background-color: #5a189a; */
+    background-color: black;
+}
+*{
+    text-decoration: none;
+}
+
+.navbar{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.nav-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo a{
+    /* color: #1a1826; */
+    /* color: #5a189a; */
+    background: linear-gradient(90deg, #ff007f, #5a189a);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+li{
+    list-style: none;
+    display: inline;
+}
+
+li a{
+    /* color: #1a1826; */
+    color:white;
+    font-size: 25px;
+    margin-right: 20px;
+}
+button{
+    /* background-color: black; */
+    /* background-color: #b28fc7; */
+    background-color: #3c096c;
+    font-size: 20px;
+    padding: 15px;
+    margin-right: 20px;
+    border-radius: 12px;
+    border: 1px solid black;
+}
+button a{
+    color: white;
+    font-style: bold;
+}
+
+.moto{
+    /* color: #f95738; */
+
+    color: rgb(82, 193, 82);
+    /* color: #ff007f; */
+    font-size:60px;
+    text-align: center;
+    margin-top: 7%;
+    font-family: Futura;
+    font-style: italic;
+}
+
+.sub-note{
+    /* color: #1a1826; */
+    color: white;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 25px;
+    margin-right: 5px;
+}
+
+#bottom{
+    text-align: center;
+    margin-top: 60px;
+}
+
+#bottom button[disabled]{
+    color:white;
+    /* background-color: #1a1826; */
+    background-color: #3c096c;
+    border-radius: 22px;
+}
+/* .btns{
+    background-color: #e13528;
+} */
+
+/* .floating-svg { */
+    /* position: absolute; */
+    /* width: 50px; Set your desired width (small size) */
+    /* height: auto; Maintain aspect ratio */
+    /* pointer-events: none; Prevent interaction */
+    /* z-index: -1; */
+    /* fill: white;
+    background-color: white;
+    opacity: 50%; */
+/* } */
+
+
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-div">
+            <div class="nav-logo"><a href="/">MIXMUSE</a></div>
+            <ul>
+                <li><a href="/about">About</a></li>
+                <li><a href="/login">Login</a></li>
+                <button class="btns"><a href="/signup">Artist Sign-up</a></button>
+                <button class="btns"><a href="/signup">Employer Sign-up</a></button>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="moto">Unleash Your Sound track - Where <br>Collaboration hits the right note!</div>
+    <div class="sub-note">Empowering creators to find the perfect musical <br>accompaniment through seamless collaboration.</div>
+
+    <div id="bottom">
+        <button disabled="disabled"><a href="/about">Learn more</a></button>
+    </div>
+
+
+</body>
+    <script>
+        const svgFiles = [
+            '/static/drum.svg',
+            '/static/guitar.svg',
+            '/static/mic.svg',
+            '/static/piano.svg',
+            '/static/keys.svg',
+            '/static/jazz.svg',
+            // Add more SVG paths as needed
+        ];
+
+        function createFloatingSVG() {
+            const svgIndex = Math.floor(Math.random() * svgFiles.length);
+            const svg = document.createElement('img');
+            svg.src = svgFiles[svgIndex];
+            svg.className = 'floating-svg';
+
+            // Set random position
+            svg.style.left = Math.random() * 100 + 'vw';
+            svg.style.top = (Math.random() * (window.innerHeight - 200)) + 100 + 'px';
+
+            // Append to body
+            document.body.appendChild(svg);
+
+            // Animate the floating effect
+            animateSVG(svg);
+        }
+
+        function animateSVG(svg) {
+            const animationDuration = Math.random() * 5 + 5; // Random duration between 5s and 10s
+            const translateX = Math.random() * 200 - 100; // Random x translation
+            const translateY = Math.random() * 100 - 50; // Random y translation
+
+            svg.animate([
+                { transform: 'translate(0, 0)' },
+                { transform: `translate(${translateX}px, ${translateY}px)` }
+            ], {
+                duration: animationDuration * 1000,
+                iterations: Infinity,
+                direction: 'alternate'
+            });
+        }
+
+        // Create multiple floating SVGs
+        for (let i = 0; i < 18; i++) { // Change the number to create more/fewer SVGs
+            createFloatingSVG();
+        }
+    </script>
+</html>

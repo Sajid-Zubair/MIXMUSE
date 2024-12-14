@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requirments Page</title>
+    <link rel="stylesheet" href="requirments.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body{
+    /* background-color: #eae7dc; */
+    background-color: black;
+}
+*{
+    text-decoration: none;
+}
+
+.navbar{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.nav-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo a{
+    /* color: #1a1826; */
+    background: linear-gradient(90deg, #ff007f, #5a189a);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.navbar ul li{
+    margin-right: 50px;
+}
+.navbar ul li i{
+    font-size: 35px;
+}
+
+li{
+    list-style: none;
+    display: inline;
+}
+
+
+li a i{
+    /* color: #1a1826; */
+    color: #d8c385;
+    font-size: 25px;
+    margin-right: 20px;
+}
+
+.sub-menu-wrap{
+    position: absolute;
+    top: 80px;
+    right: 8%;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    z-index: 1;
+}
+
+.sub-menu-wrap.open-menu{
+    max-height: 400px;
+}
+.sub-menu{
+    background: white;
+    margin: 10px;
+    padding: 20px;
+}
+.sub-menu .user-info i{
+    font-size: 44px;
+}
+
+.user-info{
+    display: flex;
+    align-items: center;
+
+}
+.sub-menu .user-info h3{
+    font-weight: 500;
+}
+.user-info i{
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    font-size: 30px;
+}
+
+.sub-menu hr{
+    border: none;
+    height: 1px;
+    width: 100%;
+    background-color: #1a1826;
+    margin: 1px 0 15px;
+}
+
+.sub-menu-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #1a1826;
+    margin: 12px 0;
+}
+
+.sub-menu-link p{
+    width: 100%;
+}
+
+
+.edit{
+    text-decoration: none;
+    color: #1a1826;
+    width: 100%;
+}
+.edit:hover {
+    font-weight: bold;
+}
+
+.sub-menu-link i{
+    background-color: #d8c385;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 10px;
+    width: 30px;
+    font-size: 28px;
+}
+
+.sub-menu-link span{
+    font-size: 22px;
+}
+
+.sub-menu-link:hover span{
+    transform: translateX(5px);
+}
+
+.sub-menu-link:hover p{
+    font-weight: bold;
+}
+
+.details{
+    /* background-color: #d8c385; */
+    background-color: #b7a1f9;
+    border-radius: 12px;
+    padding: 25px;
+    margin: 35px;
+}
+
+.details .type{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.details h2{
+    margin-top: 12px;
+}
+
+.details h3{
+    font-size: 24px;
+}
+
+.details li{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    font-size: 18px;
+    list-style-type: disc;
+}
+.basic-details p{
+    font-size: 18px;
+}
+.comp-name{
+    font-size: 18px;
+}
+.job-info p{
+    font-size: 18px;
+}
+
+.desc{
+    font-size: 18px;
+    display: flex;
+}
+
+.job-details-heading{
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 48px;
+}
+
+.requirments li{
+    display: flex;
+    flex-direction: column;
+}
+
+.audition-video-div{
+    margin-bottom: 10px;
+}
+.upload {
+    font-size: 19px;
+    margin-top: 10px;
+}
+
+.up-btn{
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #1a1826;
+    color: #d8c385;
+    background-color:rgb(114, 69, 6);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.apply{
+    margin-top: 60px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    gap: 20px;
+}
+
+.app-btn{
+    border-radius: 12px;
+    border-style: none;
+    padding: 12px 22px;
+    font-size: 24px;
+    /* background-color:rgb(114, 69, 6); */
+    background-color: #5a189a;
+    color: #d8c385;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+
+.app-btn:hover{
+    transform: scale(1.05);
+}
+
+
+hr{
+    border-style: none;
+    border: 1px solid #1a1826;
+}
+
+.form-group{
+    padding: 10px;
+    width: 80%;
+    font-size: 18px;
+}
+.form-group label input[type="file"]{
+    color: #1a1826;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.alert-message {
+    margin-top: 10px; /* Space between button and message */
+    padding: 10px; /* Padding inside the message box */
+    border: 1px solid #f0ad4e; /* Border color */
+    background-color: #fcf8e3; /* Background color */
+    color: red; /* Text color */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 14px; /* Font size */
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-div">
+            <div class="nav-logo"><a href="/posts">MIXMUSE</a></div>
+            <ul>
+                {% if session['website_user'] == 'artist' %}
+                <li><a href="/posts"><i class='bx bxs-home'></i></a></li>
+                {% else %}
+                <li><a href="/emphome"><i class='bx bxs-home'></i></a></li>
+                {% endif %}
+                <li><a href="/notifyemp"><i class='bx bxs-chat' ></i></a></li>
+                <li><a href="#" class="user-pic" onclick="toggleMenu()"><i class='bx bxs-user-circle'></i></a></li>
+            </ul>
+        </div>
+
+        <div class="sub-menu-wrap" id="sub">
+            <div class="sub-menu">
+                <div class="user-info">
+                    <i class='bx bxs-user-circle' ></i>
+                    <h3>{{user_data[1]}}</h3>
+                </div>
+                <hr>
+
+                <a href="/profile" class="sub-menu-link">
+                    <i class='bx bxs-user-circle' ></i>
+                    <p>Edit profile</p>
+                    <span>></span>
+                </a>
+                <a href="#" class="sub-menu-link">
+                    <i class='bx bx-help-circle'></i>
+                    <p>Help</p>
+                    <span>></span>
+                </a>
+                <a href="/" class="sub-menu-link">
+                    <i class='bx bx-log-out'></i>
+                    <p>Logout</p>
+                    <span>></span>
+                </a>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="details">
+        <h2 class="job-details-heading">JOB DETAILS</h2>
+        <div class="job-info">
+            <p>Looking for : <span class="type">{{job.title}}</span></p>
+            <div class="comp-name">{{job.company_name}}</div>
+            <p>{{ job.company_address }}</p>
+        </div>
+        <hr>
+
+        <div class="basic-details">
+            <h3>Salary</h3>
+            <p>{{ job.salary }} per month</p>
+            <h3>Job Type</h3>
+            <p>{{ job.job_type }}</p>
+        </div>
+        <hr>
+
+        <div class="requirments">
+            <h3>Requirments</h3>
+            <ul>
+                {% for requirement in job.requirements.split(',') %}
+                    <li>{{ requirement }}</li>
+                {% endfor %}
+            </ul>
+
+        </div>
+        <hr>
+
+        <div class="job-description">
+            <h3>Job Description</h3>
+            <div class="desc">{{job.job_description}}</div>
+        </div>
+        <hr>
+
+        <div class="responsibilities">
+            <h3>Responsibilities</h3>
+            <ul>
+                {% for resp in job.employee_responsibilities.split(',') %}
+                    <li>{{ resp }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <hr>
+
+
+        <div class="benefits">
+            <h3>What We Offer</h3>
+            <ul>
+                {% for offer in job.what_your_company_offers.split(',') %}
+                    <li>{{ offer }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <hr>
+        
+
+        {% if session['website_user'] == 'artist' %}
+            {% if already_applied %}
+                <div class="apply">
+                <button class="app-btn" disabled>APPLIED</button>
+                </div>
+            {% else %}
+            <form action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data" id="uploadForm">
+            <h3>Upload Audition Video</h3>
+            <div class="form-group">
+                <label for="exampleFormControlFile1">You can sing a cover song or an original to showcase your abilities:</label>
+                <input type="file" class="form-control-file" id="exampleFormControlFile1" name="video" accept=".mp4">
+            </div>
+                <input type="hidden" name="job_id" value="{{ job.id }}">
+                <div class="apply">
+                    <button type="submit" class="app-btn" id="applyButton">APPLY</button>
+                </div>
+            </form>
+            {% endif %}
+            <hr>
+        {% else %}
+            <div class="apply">
+                <input type="hidden" name="job_id" value="{{ job.id }}">
+                <a href="/vapplicants/{{job.id}}"><button class="app-btn">VIEW APPLICANTS</button></a>
+                <!-- <button class="app-btn">DELETE JOB</button> -->
+            </div>
+        {% endif %}
+
+        
+    </div>
+
+
+    <script>
+            let subMenu = document.getElementById("sub");
+        
+            function toggleMenu(){
+                sub.classList.toggle("open-menu");
+            }
+        
+            document.getElementById('uploadForm').onsubmit = function(event) {
+                const applyButton = document.getElementById('applyButton');
+                
+                // Check if the button is already disabled
+                if (applyButton.disabled) {
+                    event.preventDefault(); // Prevent the form from being submitted again
+                    return false; // Optionally return false to stop further execution
+                }
+        
+                // Change the button text to 'APPLIED' immediately
+                applyButton.innerText = 'APPLIED';
+                applyButton.disabled = true; // Disable the button to prevent multiple submissions
+            };
+        </script>
+</body>
+</html>

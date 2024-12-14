@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile page</title>
+    <link rel="stylesheet" href="profile.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body{
+    /* background-color: #eae7dc; */
+    background-color: black;
+}
+*{
+    text-decoration: none;
+}
+
+.navbar{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.nav-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.nav-logo a{
+    /* color: #1a1826; */
+    background: linear-gradient(90deg, #ff007f, #5a189a);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.navbar ul li{
+    margin-right: 50px;
+}
+.navbar ul li i{
+    font-size: 35px;
+}
+
+li{
+    list-style: none;
+    display: inline;
+}
+
+li a i{
+    /* color: #1a1826; */
+    color: #d8c385;
+    font-size: 25px;
+    margin-right: 20px;
+}
+
+.sub-menu-wrap{
+    position: absolute;
+    top: 80px;
+    right: 8%;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    z-index: 1;
+}
+
+.sub-menu-wrap.open-menu{
+    max-height: 400px;
+}
+.sub-menu{
+    background: white;
+    margin: 10px;
+    padding: 20px;
+}
+.sub-menu .user-info i{
+    font-size: 44px;
+}
+
+.user-info{
+    display: flex;
+    align-items: center;
+
+}
+.sub-menu .user-info h3{
+    font-weight: 500;
+}
+.user-info i{
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    font-size: 30px;
+}
+
+.sub-menu hr{
+    border: none;
+    height: 1px;
+    width: 100%;
+    background-color: #1a1826;
+    margin: 1px 0 15px;
+}
+
+.sub-menu-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #1a1826;
+    margin: 12px 0;
+}
+
+.sub-menu-link p{
+    width: 100%;
+}
+
+.sub-menu-link i{
+    /* background-color: #d8c385; */
+    background-color: #b7a1f9;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 10px;
+    width: 30px;
+    font-size: 28px;
+}
+
+.sub-menu-link span{
+    font-size: 22px;
+}
+
+.sub-menu-link:hover span{
+    transform: translateX(5px);
+}
+
+.sub-menu-link:hover p{
+    font-weight: bold;
+}
+
+
+.username{
+    display: flex;
+    align-items: center;
+    font-size: 28px;
+    margin-right: 72px;
+}
+
+.username i{
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    font-size: 40px;
+}
+
+
+.signup{
+    width: 80%;
+    padding: 29px;
+    margin: 20px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    /* background: #d8c385; */
+    background: #b7a1f9;
+    box-shadow: 0 15px 20px rgba(0,0,0,0.2);
+    align-items: center;
+}
+
+.signup h1{
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    color: #1a1826;
+    padding-bottom: 28px;
+}
+
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px 0;
+}
+
+.input{
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    padding-bottom: 15px;
+}
+.input label{
+    font-size: 18px;
+}
+
+.input:nth-child(2n){
+    justify-content: end;
+}
+
+
+
+.input label ,.gender-title{
+    width: 95%;
+    color: #1a1826;
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+.gender-title{
+    margin-right: 5px;
+    font-size: 16px;
+}
+
+.input input{
+    background-color: transparent;
+    height: 40px;
+    width: 95%;
+    padding: 0 10px;
+    border-radius: 20px;
+    font-size: 17px;
+    /* border: 1.5px solid #1a1826; */
+    border: 1.5px solid #404042;
+    outline: none;
+}
+.input textarea{
+    background-color: transparent;
+    height: 100px;
+    width: 95%;
+    padding: 10px 7px;
+    border-radius: 20px;
+    border: 1.5px solid #404042;
+    outline: none;
+}
+.input textarea::placeholder{
+    padding: 5px;
+    color: black;
+    font-size: 15px;
+}
+
+.input input::placeholder{
+    color: black;
+    font-size: 15px;
+}
+.input textarea[type="text"]{
+    font-size: 16px;
+}
+
+.input textarea{
+    font-size: 16px;
+}
+
+.input input[type="text"]{
+    font-size: 16px;
+}
+.input input[type="tel"]{
+    font-size: 16px;
+}
+
+.gender-category label{
+    font-size: 18px;
+    padding: 0 20px 0 5px;
+}
+
+.gender-category{
+    color: #1a1826;
+}
+
+.gender-category label, .gender-category input{
+    cursor: pointer;
+}
+
+.signup-btn{
+    margin: 15px 0;
+}
+
+.signup-btn button{
+    width: 100%;
+    margin-top: 10px;
+    /* color: #1a1826; */
+    color: white;
+    font-size: 19px;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    /* background: white; */
+    background: #5a189a;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-weight: 600;
+    padding: 15px;
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-div">
+
+            {% if website_user == 'artist' %}
+                <div class="nav-logo"><a href="/posts">MIXMUSE</a></div>
+            {% elif website_user == 'employer' %}
+                <div class="nav-logo"><a href="/emphome">MIXMUSE</a></div>
+            {% else %}
+                <div class="nav-logo"><a href="/">MIXMUSE</a></div>
+            {% endif %}
+
+            <ul>
+                <li>
+                    {% if website_user == 'artist' %}
+                        <a href="/posts"><i class='bx bxs-home'></i></a>
+                    {% elif website_user == 'employer' %}
+                        <a href="/emphome"><i class='bx bxs-home'></i></a>
+                    {% else %}
+                        <a href="/"><i class='bx bxs-home'></i></a>
+                    {% endif %}
+                </li>
+                <li>
+                    {% if website_user == 'employer' %}
+                        <a href="/notifyemp"><i class='bx bxs-chat' ></i></a>
+                    {% elif website_user == 'artist' %}
+                        <a href="/notifyuser"><i class='bx bxs-chat' ></i></a>
+                    {% endif %}
+                </li>
+                <li><a href="#" class="user-pic" onclick="toggleMenu()"><i class='bx bxs-user-circle'></i></a></li>
+            </ul>
+        </div>
+
+        <div class="sub-menu-wrap" id="sub">
+            <div class="sub-menu">
+                <div class="user-info">
+                    <i class='bx bxs-user-circle' ></i>
+                    
+                    <h3>{{user_data[1]}}</h3>
+
+                </div>
+                <hr>
+
+                <a href="/profile" class="sub-menu-link">
+                    <i class='bx bxs-user-circle' ></i>
+                    <p>Edit profile</p>
+                    <span>></span>
+                </a>
+                <a href="#" class="sub-menu-link">
+                    <i class='bx bx-help-circle'></i>
+                    <p>Help</p>
+                    <span>></span>
+                </a>
+                <a href="/logout" class="sub-menu-link">
+                    <i class='bx bx-log-out'></i>
+                    <p>Logout</p>
+                    <span>></span>
+                </a>
+
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="signup">
+        <form action="/profile" method="post">
+            
+            <h1>Edit Profile</h1>
+           
+            <div class="username">
+                <i class='bx bx-user-circle'></i>
+                <p>{{ user_data[1] }}</p>
+            </div>
+            <hr style="border: 2px solid black; width: 100%; margin-top: 12px;">
+            <div class="content">
+                <div class="input">
+                    <label for="name">Fullname</label>
+                    <input type="text" placeholder="Enter Fullname" name="name" required value="{{ user_data[0] }}">
+                </div>
+                <div class="input">
+                    <label for="username">Username</label>
+                    <input type="text" placeholder="Enter Username"  name="user" required value="{{ user_data[1] }}">
+                </div>
+                <div class="input">
+                    <label for="email">Email</label>
+                    <input type="email" placeholder="Enter valid Email address"  name="email" required value="{{ user_data[2] }}">
+                </div>
+                <div class="input">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" placeholder="Enter phone number"  name="phone" required value="{{ user_data[3] }}">
+                </div>
+                <div class="input">
+                    <label for="password">Password</label>
+                    <input type="password" placeholder="Enter password"  name="password" required value="{{ user_data[4] }}">
+                </div>
+                <div class="input">
+                    <label for="address">Address</label>
+                    <input type="text" placeholder="Enter your Address" name="address" required value="{{ user_data[6] }}">
+                </div>
+                
+                <div class="input">
+                    <label for="skills">Skills</label>
+                    <textarea placeholder="Enter your Skills" name="skills" required >{{ user_data[7] }}</textarea>
+                    
+                </div>
+                <div class="input">
+                    <label for="exp">Experience</label>
+                    <textarea placeholder="Share your Experience" name="exp" required>{{ user_data[8] }}</textarea>
+                </div>
+                
+
+                <div class="gender-category">
+                    <span class="gender-title">Gender</span>
+                    <input type="radio" name="gender" id="male" value="male" {% if user_data[5] == 'male' %}checked{% endif %}>
+                    <label for="male">Male</label>
+                    <input type="radio" name="gender" id="female" value="female" {% if user_data[5] == 'female' %}checked{% endif %}>
+                    <label for="female">Female</label>
+                </div>
+            </div>
+            
+            <div class="signup-btn">
+                <button type="submit">Update</button>
+            </div>
+            
+        </form>
+    </div>
+
+
+
+
+    <script>
+        let subMenu = document.getElementById("sub");
+        
+        function toggleMenu(){
+            sub.classList.toggle("open-menu");
+        }
+        
+    </script>
+</body>
+</html>

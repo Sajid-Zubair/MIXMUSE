@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'login.css')}}">
+
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* background-color: #eae7dc; */
+    background-color: black;
+}
+
+.login{
+    width: 420px;
+    /* background-color: #d8c385; */
+    /* color: #1a1826; */
+    color: #1a1826;
+    border-radius: 12px;
+    padding: 25px;
+    /* box-shadow: 0 15px 20px rgba(0,0,0,0.2); */
+    background: #858ae3;
+    box-shadow: 15px 20px 25px rgba(231, 122, 255, 0.2);
+}
+
+.login h1{
+    font-size: 36px;
+    text-align: center;
+}
+
+.login .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border: 2px solid rgba(212, 210, 210, 0.2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #1a1826;
+    padding: 25px 45px 25px 25px;
+}
+
+.input-box input::placeholder{
+    color: #1a1826;
+} 
+
+.input-box i{
+    position: absolute;
+    right: 20px;
+    top: 30%;
+    transform: translate(-50%);
+    font-size: 20px;
+}
+
+.login .remember-forget{
+    display: flex;
+    justify-content: space-around;
+    font-size: 14px;
+    margin: -15px 0px 15px;
+}
+
+.remember-forget label input{
+    color: #1a1826;
+    margin-right: 10px;
+}
+
+.remember-forget a{
+    color: #1a1826;
+    text-decoration: none;
+}
+
+.remember-forget a:hover{
+    text-decoration: underline;
+}
+
+.login .login-btn{
+    width: 100%;
+    height: 50px;
+    /* color: #1a1826; */
+    color: white;
+    font-size: 19px;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    /* background: white; */
+    background: #4e148c;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.login .create-acc{
+    font-size: 14.5px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.create-acc p a{
+    color: #1a1826;
+    font-weight: 600;
+    text-decoration: none;
+}
+.create-acc p a:hover{
+    text-decoration: underline;
+}
+</style> 
+
+
+</head>
+<body>
+    <div class="login">
+        <form method="post">
+            <h1>LOGIN</h1>
+            <div class="input-box">
+                <input type="text" name ="user" placeholder="Enter username" required>
+                <i class='bx bxs-user'></i>
+            </div>
+            <div class="input-box">
+                <input type="password" name ="password" placeholder="Enter password" required>
+                <i class='bx bxs-lock-alt' ></i>
+            </div>
+
+            <div class="remember-forget">
+                <label><input type="checkbox">Remember me</label>
+                <a href="#">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="login-btn">Login</button>
+
+            <div class="create-acc">
+                <p>Don't have an account? <a href="/signup"> Register</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

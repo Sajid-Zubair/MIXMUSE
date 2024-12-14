@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Page</title>
+    <link rel="stylesheet" href="about.css" />
+    
+    <style>
+      body{
+    /* background-color: #eae7dc; */
+    background-color: black;
+}
+*{
+    text-decoration: none;
+}
+
+.navbar{
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.nav-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo a{
+    /* color: #1a1826; */
+    /* color: #e13528; */
+    background: linear-gradient(90deg, #ff007f, #5a189a);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+li{
+    list-style: none;
+    display: inline;
+}
+
+li a{
+    color: white;
+    font-size: 25px;
+    margin-right: 20px;
+}
+button{
+    /* background-color: #1a1826; */
+    /* background-color: #e13528; */
+    background-color: #3c096c;
+    font-size: 20px;
+    padding: 15px;
+    margin-right: 20px;
+    border-radius: 12px;
+    border: 1px solid black;
+}
+
+button a{
+    color: white;
+    font-style: bold;
+}
+
+.mission{
+    font-size: 65px;
+    text-align: center;
+    /* color: rgb(82, 193, 82); */
+    color: #ff007f;
+    margin-top: 30px;
+    font-family: Futura;   
+}
+
+.mission-para{
+    text-align: center;
+    /* color: #51483b; */
+    /* color: #1a1826; */
+    color: white;
+    font-size: 25px;
+    margin-top: 15px;
+    padding: 30px;
+}
+
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four columns */
+    gap: 10px; /* Remove gap between images */
+    padding: 20px; /* Padding around the grid */
+    position: relative; /* Set position relative for child absolute positioning */
+}
+
+.image-grid img {
+    width: 100%; /* Make images responsive */
+    height: 350px; /*Maintain aspect ratio */
+    max-width: 300px; /* Set a maximum width for images */
+    border-radius: 8px; /* Optional: rounded corners */
+    margin-top: 30px; /* Adjust this value to control overlap */
+    transition: transform 0.3s; /* Optional: Add a transition for hover effect */
+}
+
+.image-grid img:hover {
+    transform: scale(1.05); /* Optional: Scale up on hover */
+}
+
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-div">
+        <div class="nav-logo"><a href="/">MIXMUSE</a></div>
+        <ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/login">Login</a></li>
+          <button class="btns"><a href="/signup">Artist Sign-up</a></button>
+          <button class="btns"><a href="/signup">Employer Sign-up</a></button>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="mission">Mission</div>
+    <div class="mission-para">
+      Our mission is to revolutionize global music collaboration. We empower
+      creators with a dynamic online platform where collaboration meets
+      creativity. Directors connect seamlessly with diverse talent to find
+      perfect soundtracks. We enable handpicked collaborators to bring visions
+      to life. Welcome to the future of music collaboration, where possibilities
+      are endless and talent knows no bounds.
+    </div>
+
+    <div class="image-grid">
+        <img src="{{ url_for('static', filename='pic2.jpg') }}" class="background-image" alt="Background Image">
+        <img src="{{ url_for('static', filename='pic1.jpg') }}" class="background-image" alt="Background Image">
+        <img src="{{ url_for('static', filename='pic5.jpg') }}" class="background-image" alt="Background Image">
+        <img src="{{ url_for('static', filename='pic4.jpg') }}" class="background-image" alt="Background Image">
+    </div>
+
+
+  </body>
+</html>

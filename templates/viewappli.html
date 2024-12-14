@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post</title>
+    <!-- <link rel="stylesheet" href="EmpHomePage.css"> -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body{
+    /*background-color: #eae7dc;*/
+    background-color: black;
+}
+*{
+    text-decoration: none;
+}
+
+.navbar{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.nav-div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo a{
+    /* color: #1a1826; */
+    background: linear-gradient(90deg, #ff007f, #5a189a);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.navbar ul li{
+    margin-right: 50px;
+}
+.navbar ul li i{
+    font-size: 35px;
+}
+
+li{
+    list-style: none;
+    display: inline;
+}
+
+li a i{
+    /* color: #1a1826; */
+    color: #d8c385;
+    font-size: 25px;
+    margin-right: 20px;
+}
+
+.sub-menu-wrap{
+    position: absolute;
+    top: 80px;
+    right: 8%;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    z-index: 1;
+}
+
+.sub-menu-wrap.open-menu{
+    max-height: 400px;
+}
+.sub-menu{
+    background: white;
+    margin: 10px;
+    padding: 20px;
+}
+.sub-menu .user-info i{
+    font-size: 44px;
+}
+
+.user-info{
+    display: flex;
+    align-items: center;
+
+}
+.sub-menu .user-info h3{
+    font-weight: 500;
+}
+.user-info i{
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    font-size: 30px;
+}
+
+.sub-menu hr{
+    border: none;
+    height: 1px;
+    width: 100%;
+    background-color: #1a1826;
+    margin: 1px 0 15px;
+}
+
+.sub-menu-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #1a1826;
+    margin: 12px 0;
+}
+
+.sub-menu-link p{
+    width: 100%;
+}
+
+
+.edit{
+    text-decoration: none;
+    color: #1a1826;
+    width: 100%;
+}
+.edit:hover {
+    font-weight: bold;
+}
+
+.sub-menu-link i{
+    /* background-color: #d8c385; */
+    background-color: #ffd6ff;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 10px;
+    width: 30px;
+    font-size: 28px;
+}
+
+.sub-menu-link span{
+    font-size: 22px;
+}
+
+.sub-menu-link:hover span{
+    transform: translateX(5px);
+}
+
+.sub-menu-link:hover p{
+    font-weight: bold;
+}
+
+.post{
+    font-size: 30px;
+    /* color: #1a1826; */
+    color:white;
+    font-weight: bold;
+}
+
+.fixed-btn{
+    position: fixed;
+    bottom: 60px;
+    right: 60px;
+    background-color: #1a1826;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 50%;
+    padding: 10px 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+.plus a{
+    font-weight: bold;
+    font-size: 24px;
+    margin: 5px 10px;
+    color: white;
+}
+.fixed-btn:hover{
+    transform: scale(1.03);
+}
+
+.job-list-container {
+    max-width: 100%;
+    height: 100vh;
+    margin: 20px auto;
+    /* background-color: #d8c385; */
+    background-color: #b7a1f9;
+    padding: 34px;
+    border-radius: 12px;
+    overflow-y: auto;
+}
+
+.job-list-container h2{
+    font-size: 30px;
+    border-left: 4px solid #1a1826;
+    padding-left: 20px;
+}
+
+
+
+.applicant-item{
+    display: flex;
+    padding: 15px; 
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+
+a .applicant-username{
+    flex: 1;
+    font-weight: bold;
+    font-size: 1.1rem;
+    max-width: 50%;
+    color: #1a1826;
+}
+.applicant-actions{
+    display: flex;
+    gap: 10px;
+    max-width: 50%;
+    
+}
+.no-applicants-message {
+    color: black;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 20px;
+}
+.app-btn{
+    display: inline;
+    background-color: #1a1826;
+    font-size: 12px;
+    padding: 5px 55px;
+    margin-right: 20px;
+    border-radius: 12px;
+    border: 1px solid black;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    width: 180px;
+}
+.app-btn:hover{
+    transform: scale(1.05);
+    background-color: #5a189a;
+}
+.app-btn{
+    padding: 12px;
+    text-align: center;
+    border: none;
+    background-color: #ab56ff;
+    color: white;
+    font-style: bold;
+}
+.line{
+    border: none;
+    max-width: 100%;
+    background-color: black;
+    height: 1.8px;
+    margin: 0;
+}
+.jobs{
+    margin: 20px;
+    /* background-color: #ffd6ff; */
+}
+.applicant-item{
+    padding: 30px;
+    border-radius: 12px;
+    background-color: #ffd6ff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+    max-width: 100%;
+    gap: 15px;
+}
+.applicant-actions a .app-btn{
+    background-color: #1a1826;
+}
+
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-div">
+            <div class="nav-logo"><a href="/emphome">MIXMUSE</a></div>
+            <ul>
+                <li><a href="/postjob" class="post">Create Post</a></li>
+                <li><a href="/emphome"><i class='bx bxs-home'></i></a></li>
+                <li><a href="/notifyemp"><i class='bx bxs-chat' ></i></a></li>
+                <li><a href="#" class="user-pic" onclick="toggleMenu()"><i class='bx bxs-user-circle'></i></a></li>
+            </ul>
+        </div>
+
+        <div class="sub-menu-wrap" id="sub">
+            <div class="sub-menu">
+                <div class="user-info">
+                    <i class='bx bxs-user-circle' ></i>
+                    <h3>{{user_data[1]}}</h3>
+                </div>
+                <hr>
+
+                <a href="/profile" class="sub-menu-link">
+                    <i class='bx bxs-user-circle' ></i>
+                    <p>Edit profile</p>
+                    <span>></span>
+                </a>
+                <a href="#" class="sub-menu-link">
+                    <i class='bx bx-help-circle'></i>
+                    <p>Help</p>
+                    <span>></span>
+                </a>
+                <a href="/logout" class="sub-menu-link">
+                    <i class='bx bx-log-out'></i>
+                    <p>Logout</p>
+                    <span>></span>
+                </a>
+
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="job-list-container">
+        <h2>Applicants</h2>
+
+        <div class="jobs">
+            {% if applicants %}
+                <ul class="applicant-list">
+                    {% for applicant in applicants %}                    
+                        <li class="applicant-item" id="applicant-{{ applicant[0] }}" >
+                            <a href="{{url_for('viewappliprofile', user=applicant[0])}}"><span class="applicant-username">{{ applicant[0] }}</span></a><!-- Display applicant's username -->
+                            <div class="applicant-actions">    
+                                <!-- <a href="{{ url_for('audition_video', filename=applicant[3]) }}" target="blank"><button class="app-btn">View Audition Video</button></a>                                                                 -->
+                                <a href="{{ url_for('audition_video', filename=applicant[1]) }}" 
+                                target="_blank" 
+                                class="app-btn">View Video</a>
+                                
+                                <!-- <button class="app-btn" onclick="acceptApplicant('{{applicant[0]}}', '{{applicant[2]}}')">Accept</button> -->
+                                
+                                <button class="app-btn accept-btn" data-username="{{ applicant[0] }}" data-jobid="{{applicant[1].split('_')[-1].split('.')[0]}}" onclick="acceptApplicant(this)">Accept</button>                               
+                                <button class="app-btn" onclick="rejectApplicant('{{ applicant[0] }}', '{{ applicant[2] }}')">Reject</button>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            
+            {% else %}
+                <div class="no-applicants-message">No applicants found for this job.</div>
+            {% endif %}
+            
+            
+        </div>
+
+    </div>
+
+
+
+    <script>
+
+function rejectApplicant(applicantUsername,jobId) {
+    if (confirm("Are you sure you want to reject this applicant?")) {
+        const requestData = {username: applicantUsername, job_id: jobId};
+        console.log("Sending data:", requestData);
+        
+        fetch('/reject_applicant', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username: applicantUsername, job_id: jobId })
+        })
+        .then(response =>{
+            console.log(response);
+            if (response.ok){
+                // Remove the applicant from the frontend
+                document.getElementById('applicant-' + applicantUsername).remove();
+            } else{
+                alert("Failed to reject applicant. "+ response.statusText);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+}
+
+
+
+
+                let subMenu = document.getElementById("sub");
+        
+                function toggleMenu(){
+                    sub.classList.toggle("open-menu");
+                }
+
+
+
+
+            //     function acceptApplicant(username, jobId) {
+            //         fetch('/accept_applicant', {
+            //             method: 'POST',
+            //             headers: {
+            //                 'Content-Type': 'application/json',
+            //             },
+            //             body: JSON.stringify({ artist_username: username, job_id: jobId })
+            //         })
+            //         .then(response => {
+            //             if (response.ok) {
+            //                 alert('Applicant accepted successfully!');
+            //                 // Optionally, refresh the page or remove the applicant from the list
+            //             } else {
+            //                 alert('Failed to accept applicant.');
+            //             }
+            //         })
+            //         .catch(error => {
+            //             console.error('Error:', error);
+            //             alert('An error occurred.');
+            //         });
+            // }
+            function acceptApplicant(button) {
+                const username = button.getAttribute('data-username') || '';
+                const jobId = button.getAttribute('data-jobid') || '';
+                console.log('Username : ', username)
+                console.log('JobId : ',jobId)
+                if (!username || !jobId) {
+                    alert('Missing username or job ID');
+                    return;
+                }
+                    fetch('/accept_applicant', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ username: username, job_id: jobId })
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            button.textContent = 'Accepted';
+                            button.disabled = true;
+                            const appli = document.getElementById('applicant-' + username.replace(' ', '_'));
+                            if(appli){
+                                appli.remove();
+                            }
+                            alert('Applicant accepted successfully!');
+                            // Optionally, refresh the page or remove the applicant from the list
+                        } else {
+                            return response.json().then(data => {
+                                alert(`Failed to accept applicant.${data.message}`);
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('An error occurred.');
+                    });
+            }
+            </script>
+</body>
+</html>
